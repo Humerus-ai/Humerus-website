@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../lib/content';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +18,7 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition ${
         scrolled
-          ? 'bg-white/85 backdrop-blur-md border-b border-slate-200'
+          ? 'bg-white/85 backdrop-blur-md border-b border-slate-200 dark:bg-slate-950/80 dark:border-slate-800'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
@@ -26,40 +27,44 @@ export function Navbar() {
           <img src="/logo.png" alt="Humerus" className="h-9 w-auto object-contain" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.slice(0, -1).map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-brand-700"
+              className="text-sm font-medium text-slate-600 transition hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-300"
             >
               {link.label}
             </a>
           ))}
+          <ThemeToggle />
           <a href="#demo" className="btn-primary !py-2 !text-sm">
             Request demo
           </a>
         </nav>
 
-        <button
-          type="button"
-          aria-label="Toggle navigation"
-          className="md:hidden rounded-lg p-2 text-slate-700 hover:bg-slate-100"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-label="Toggle navigation"
+            className="rounded-lg p-2 text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-slate-200 bg-white">
+        <div className="md:hidden border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
           <nav className="container-page flex flex-col py-4 gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:hover:text-brand-300"
               >
                 {link.label}
               </a>

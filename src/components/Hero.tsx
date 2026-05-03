@@ -6,11 +6,11 @@ export function Hero() {
     <section id="top" className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white dark:from-brand-900/30 dark:via-slate-950 dark:to-slate-950"
       />
       <div
         aria-hidden="true"
-        className="absolute -top-32 right-1/2 -z-10 h-[480px] w-[480px] translate-x-1/2 rounded-full bg-brand-200/40 blur-3xl"
+        className="absolute -top-32 right-1/2 -z-10 h-[480px] w-[480px] translate-x-1/2 rounded-full bg-brand-200/40 blur-3xl dark:bg-brand-700/20"
       />
 
       <div className="container-page grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -20,14 +20,14 @@ export function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="lg:col-span-7"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/70 backdrop-blur px-3 py-1 text-xs font-semibold text-brand-700">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/70 backdrop-blur px-3 py-1 text-xs font-semibold text-brand-700 dark:border-brand-800 dark:bg-slate-900/60 dark:text-brand-200">
             <Sparkles className="h-3.5 w-3.5" />
             Multi-tenant SaaS · ABDM-ready · DPDP Act 2023
           </span>
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900">
-            The unified <span className="text-brand-600">healthcare SaaS</span> ecosystem.
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900 dark:text-white">
+            The unified <span className="text-brand-600 dark:text-brand-400">healthcare SaaS</span> ecosystem.
           </h1>
-          <p className="mt-6 text-lg sm:text-xl leading-relaxed text-slate-600 max-w-2xl">
+          <p className="mt-6 text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-300 max-w-2xl">
             Humerus is one platform for hospitals, diagnostics, pharmacy and patients — built on a
             shared spine of identity, consent, orders, billing and audit. Engineered for India's
             DPDP Act, ABHA-linked from day one.
@@ -40,8 +40,8 @@ export function Hero() {
               See the platform
             </a>
           </div>
-          <div className="mt-10 flex items-center gap-3 text-sm text-slate-500">
-            <ShieldCheck className="h-4 w-4 text-emerald-600" />
+          <div className="mt-10 flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+            <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
             Field-level AES-256 · India data residency · Immutable audit
           </div>
         </motion.div>
@@ -69,15 +69,15 @@ function EcosystemVisual() {
 
   return (
     <div className="relative mx-auto aspect-square max-w-md">
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-100 to-white shadow-card" />
-      <div className="absolute inset-6 rounded-full border border-dashed border-brand-300/70 animate-pulse-soft" />
-      <div className="absolute inset-16 rounded-full border border-dashed border-brand-300/40" />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-100 to-white shadow-card dark:from-brand-900/40 dark:to-slate-900" />
+      <div className="absolute inset-6 rounded-full border border-dashed border-brand-300/70 animate-pulse-soft dark:border-brand-500/40" />
+      <div className="absolute inset-16 rounded-full border border-dashed border-brand-300/40 dark:border-brand-500/20" />
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center rounded-2xl bg-white px-6 py-5 shadow-card-hover">
+        <div className="flex flex-col items-center justify-center rounded-2xl bg-white px-6 py-5 shadow-card-hover dark:bg-slate-900 dark:ring-1 dark:ring-slate-800">
           <img src="/logo.png" alt="" className="h-10 w-10" />
-          <div className="mt-2 text-sm font-bold text-brand-700">Humerus core</div>
-          <div className="text-[11px] uppercase tracking-wider text-slate-500">
+          <div className="mt-2 text-sm font-bold text-brand-700 dark:text-brand-300">Humerus core</div>
+          <div className="text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400">
             Patient-centric spine
           </div>
         </div>
@@ -94,10 +94,10 @@ function EcosystemVisual() {
             className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
             style={{ left: `${x}%`, top: `${y}%` }}
           >
-            <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-card">
-              <Icon className="h-5 w-5 text-brand-600" />
+            <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-card dark:border-slate-700 dark:bg-slate-900">
+              <Icon className="h-5 w-5 text-brand-600 dark:text-brand-400" />
             </div>
-            <span className="rounded-md bg-white/80 px-2 py-0.5 text-[11px] font-semibold text-slate-700 backdrop-blur">
+            <span className="rounded-md bg-white/80 px-2 py-0.5 text-[11px] font-semibold text-slate-700 backdrop-blur dark:bg-slate-900/80 dark:text-slate-200">
               {label}
             </span>
           </div>

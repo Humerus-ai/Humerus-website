@@ -36,15 +36,15 @@ export function DemoForm() {
   return (
     <Section
       id="demo"
-      className="bg-slate-50"
+      className="bg-slate-50 dark:bg-slate-900/40"
       eyebrow="Request a demo"
       title="See Humerus on your workflow in 30 minutes."
       subtitle="Tell us about your hospital, lab, pharmacy, or patient programme. Our team will tailor a walkthrough to your stack."
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-        <div className="lg:col-span-2 space-y-6 text-sm text-slate-600">
+        <div className="lg:col-span-2 space-y-6 text-sm text-slate-600 dark:text-slate-300">
           <div>
-            <h3 className="font-semibold text-slate-900">What you'll see</h3>
+            <h3 className="font-semibold text-slate-900 dark:text-white">What you'll see</h3>
             <ul className="mt-3 space-y-2">
               <li>• A live tenant with realistic OPD, IPD, lab and pharmacy flows</li>
               <li>• Field-level encryption, audit and break-glass walkthrough</li>
@@ -52,8 +52,8 @@ export function DemoForm() {
               <li>• Pricing for your bed / accession / counter footprint</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-5">
-            <p className="text-xs uppercase tracking-wider font-semibold text-brand-700">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+            <p className="text-xs uppercase tracking-wider font-semibold text-brand-700 dark:text-brand-300">
               For the developers
             </p>
             <p className="mt-2 text-sm">
@@ -68,10 +68,12 @@ export function DemoForm() {
 
         <div className="lg:col-span-3">
           {done ? (
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
-              <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" />
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">Request received.</h3>
-              <p className="mt-2 text-sm text-slate-700">
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center dark:border-emerald-800 dark:bg-emerald-900/30">
+              <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600 dark:text-emerald-400" />
+              <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
+                Request received.
+              </h3>
+              <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">
                 Reference <span className="font-mono">{done.id}</span>. Our team will reach out
                 within one business day.
               </p>
@@ -86,7 +88,7 @@ export function DemoForm() {
           ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-card grid grid-cols-1 sm:grid-cols-2 gap-5"
+              className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-card grid grid-cols-1 sm:grid-cols-2 gap-5 dark:border-slate-800 dark:bg-slate-900"
               noValidate
             >
               <Field label="Full name" error={errors.name?.message}>
@@ -139,7 +141,7 @@ export function DemoForm() {
               </Field>
 
               <div className="sm:col-span-2 flex items-center justify-between gap-4">
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   By submitting, you agree to be contacted about Humerus. We follow DPDP
                   Act 2023 norms.
                 </p>
@@ -168,7 +170,7 @@ export function DemoForm() {
 }
 
 const inputCls =
-  'w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200';
+  'w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-brand-400 dark:focus:ring-brand-700/40';
 
 function Field({
   label,
@@ -181,9 +183,13 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-semibold text-slate-700">{label}</span>
+      <span className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+        {label}
+      </span>
       {children}
-      {error && <span className="mt-1 block text-xs text-rose-600">{error}</span>}
+      {error && (
+        <span className="mt-1 block text-xs text-rose-600 dark:text-rose-400">{error}</span>
+      )}
     </label>
   );
 }

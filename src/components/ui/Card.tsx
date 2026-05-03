@@ -13,7 +13,7 @@ export function Card({ className = '', delay = 0, children }: PropsWithChildren<
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.35, ease: 'easeOut', delay }}
-      className={`group rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition hover:border-brand-200 hover:shadow-card-hover ${className}`}
+      className={`group rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition hover:border-brand-200 hover:shadow-card-hover dark:border-slate-800 dark:bg-slate-900 dark:hover:border-brand-700 ${className}`}
     >
       {children}
     </motion.div>

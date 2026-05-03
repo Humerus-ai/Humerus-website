@@ -33,12 +33,14 @@ export function Section({
           >
             {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
             {title && (
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="mt-4 text-lg leading-relaxed text-slate-600">{subtitle}</p>
+              <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                {subtitle}
+              </p>
             )}
           </motion.div>
         )}

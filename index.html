@@ -23,6 +23,18 @@
       rel="stylesheet"
     />
     <title>Humerus — The Unified Healthcare SaaS Ecosystem</title>
+    <script>
+      // No-FOUC theme bootstrap. Reads stored preference, falls back to OS.
+      (function () {
+        try {
+          var stored = localStorage.getItem('humerus-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored === 'dark' || stored === 'light' ? stored : prefersDark ? 'dark' : 'light';
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = theme;
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

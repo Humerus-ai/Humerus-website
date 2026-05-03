@@ -6,7 +6,7 @@ export function PlatformSpine() {
   return (
     <Section
       id="platform"
-      className="bg-slate-50"
+      className="bg-slate-50 dark:bg-slate-900/40"
       eyebrow="One reusable backbone"
       title="The shared platform spine."
       subtitle="Patient identity, consent, orders, billing, audit and interoperability — built once, reused across every vertical."
@@ -15,11 +15,11 @@ export function PlatformSpine() {
         {spineModules.map((m, i) => (
           <Card key={m.title} delay={i * 0.04} className="h-full">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold tracking-[0.18em] text-brand-600">{m.number}</span>
-              <m.icon className="h-5 w-5 text-slate-400 group-hover:text-brand-600 transition" />
+              <span className="text-xs font-bold tracking-[0.18em] text-brand-600 dark:text-brand-400">{m.number}</span>
+              <m.icon className="h-5 w-5 text-slate-400 transition group-hover:text-brand-600 dark:text-slate-500 dark:group-hover:text-brand-400" />
             </div>
-            <h3 className="mt-4 text-base font-semibold text-slate-900">{m.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">{m.description}</p>
+            <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-white">{m.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{m.description}</p>
           </Card>
         ))}
       </div>
