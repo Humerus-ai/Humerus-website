@@ -4,7 +4,7 @@ export function Footer() {
     <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="container-page py-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
         <div className="col-span-2 sm:col-span-1">
-          <img src="/logo.png" alt="Humerus" className="h-9 w-auto object-contain dark:brightness-110" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Humerus" className="h-9 w-auto object-contain dark:brightness-110" />
           <p className="mt-3 text-sm text-slate-600 max-w-xs dark:text-slate-400">
             The unified healthcare SaaS ecosystem for hospitals, diagnostics, pharmacy and patients.
           </p>
