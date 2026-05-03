@@ -65,6 +65,31 @@ Mocking [CloudFunctions.invoke(notifyLead)] {…}
 
 To swap in real GCP, install the SDK and replace each function body. Call sites (`DemoForm.tsx`) do not change.
 
+## Deploy on GitHub Pages (current)
+
+The site auto-deploys to `https://humerus-ai.github.io/Humerus-website/` on every push to `main`.
+
+**One-time repo setup** (do this in the GitHub UI before the first run):
+
+1. **Settings → Pages → Build and deployment → Source:** select `GitHub Actions`. (Do *not* pick "Deploy from a branch" — the workflow uses the new `actions/deploy-pages` flow, not the old `gh-pages` branch.)
+2. **Settings → Actions → General → Workflow permissions:** "Read and write permissions" + "Allow GitHub Actions to create and approve pull requests" both enabled.
+3. Push to `main` (or trigger manually under **Actions → Deploy to GitHub Pages → Run workflow**).
+
+**How it works** — see [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml):
+
+- Checkout → `npm ci` → `npm run build` with `GITHUB_PAGES=true` (sets Vite `base` to `/Humerus-website/`).
+- Copies `dist/index.html` to `dist/404.html` so any unknown path falls back to the SPA (anchor links keep working).
+- Uploads `dist/` as a Pages artifact and deploys via `actions/deploy-pages@v4`.
+
+**Local sanity check before pushing:**
+
+```bash
+GITHUB_PAGES=true npm run build
+npx serve dist -l 5174   # open http://localhost:5174/Humerus-website/ to mimic Pages
+```
+
+**Custom domain (humerus.ai) later:** add a `public/CNAME` file containing `humerus.ai`, set the DNS, and switch `base` back to `'/'` (or set `VITE_BASE=/`). The workflow doesn't need any other change.
+
 ## Deploy on GCP (later)
 
 The build output is static (`dist/`), so the cheapest path is fine for v1.
