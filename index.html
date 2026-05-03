@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1FA8E0" />
+    <meta
+      name="description"
+      content="Humerus is a unified healthcare SaaS ecosystem — multi-tenant EMR for hospitals, diagnostics, pharmacies, and patients. ABDM-ready, DPDP Act 2023 compliant, FHIR R4."
+    />
+    <meta property="og:title" content="Humerus — The Unified Healthcare SaaS Ecosystem" />
+    <meta
+      property="og:description"
+      content="Multi-tenant EMR platform for hospitals, diagnostics, pharmacy and patients. ABDM, DPDP, NABH, FHIR R4."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Humerus — The Unified Healthcare SaaS Ecosystem</title>
+    <script>
+      // No-FOUC theme bootstrap. Reads stored preference, falls back to OS.
+      (function () {
+        try {
+          var stored = localStorage.getItem('humerus-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored === 'dark' || stored === 'light' ? stored : prefersDark ? 'dark' : 'light';
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = theme;
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
