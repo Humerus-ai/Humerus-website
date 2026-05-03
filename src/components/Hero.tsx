@@ -75,7 +75,7 @@ function EcosystemVisual() {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center rounded-2xl bg-white px-6 py-5 shadow-card-hover dark:bg-slate-900 dark:ring-1 dark:ring-slate-800">
-          <img src="/logo.png" alt="" className="h-10 w-10" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" className="h-10 w-10" />
           <div className="mt-2 text-sm font-bold text-brand-700 dark:text-brand-300">Humerus core</div>
           <div className="text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400">
             Patient-centric spine

@@ -24,7 +24,7 @@ export function Navbar() {
     >
       <div className="container-page flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="Humerus home">
-          <img src="/logo.png" alt="Humerus" className="h-9 w-auto object-contain" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Humerus" className="h-9 w-auto object-contain" />
         </a>
 
         <nav className="hidden md:flex items-center gap-6">
